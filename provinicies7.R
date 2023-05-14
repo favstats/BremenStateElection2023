@@ -137,13 +137,12 @@ openxlsx::read.xlsx("data/tolabel.xlsx") %>%
     T ~  party
   ))
 
-all_dat <- openxlsx::read.xlsx("data/tolabel.xlsx") %>%
-  filter(!(party %in% c("0", "Pol", "Sta"))) %>% 
-  # count(party, sort  =T) %>% 
+all_dat <- read_csv2("data/tolabel.csv") %>%
+  filter(!(party %in% c("0", "Pol", "Sta"))) %>%
   mutate(party = case_when(
     party == "Lin" ~ "DIE LINKE",
     party == "Grü" ~ "BÜNDNIS 90/DIE GRÜNEN",
-    T ~  party
+    TRUE ~ party
   )) %>%
     distinct(page_id, .keep_all = T) %>%
     add_count(page_name, sort  =T) %>%

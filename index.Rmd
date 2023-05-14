@@ -117,7 +117,8 @@ election_dat30 <- readRDS("data/election_dat30.rds") %>%
     str_detect(party, "NDNIS 90/DIE")  ~ "DIE GRUENEN",
     str_detect(party, "in Wut")  ~ "BIW",
     T ~ party  )) %>% 
-  filter(page_name != "CDU CSU Europa" | page_name != "FDP")
+  filter(internal_id != "1790920000965539")%>% 
+  filter(internal_id != "21289227249")
 
  
 
@@ -127,7 +128,8 @@ election_dat7 <- readRDS("data/election_dat7.rds") %>%
     str_detect(party, "NDNIS 90/DIE")  ~ "DIE GRUENEN",
     str_detect(party, "in Wut")  ~ "BIW",
     T ~ party  )) %>% 
-  filter(page_name != "CDU CSU Europa" | page_name != "FDP")
+  filter(internal_id != "1790920000965539")%>% 
+  filter(internal_id != "21289227249")
 
 
 fin <- (as.Date(election_dat30$ds[1])-lubridate::days(1))
