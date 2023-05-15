@@ -8,7 +8,7 @@ library(tidyverse)
 
 tstamp <- Sys.time()
 
-read_csv("data/brem")
+# read_csv("data/brem")
 
 more_data <- dir("data/reports", full.names = T) %>%
     map_dfr(~{print(.x)

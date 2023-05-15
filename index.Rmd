@@ -1010,6 +1010,12 @@ contested_dat30  %>%
     arrange(desc(perc)) %>% 
     slice(1:10) %>% 
     ungroup()
+
+contested_dat30 %>% 
+    group_by(party) %>%
+    arrange(desc(perc)) %>% 
+    slice(1:10) %>% 
+  dput()
 ```
 
 
